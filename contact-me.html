@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.R. | Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact-me.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!--Nav bar-->
+	<section class="nav-bar">
+		<div class="radio-inputs">
+			
+
+			<label class="radio">
+				<input checked name="radio" type="radio" onclick="window.location.href='{{ url_for('home') }}'" />
+				<span class="name">Home</span>
+			</label>
+
+		</div>
+	</section>
+<!--------------------------------Hero section---------------------------------------------------->
+<section class="hero">
+	<div class="container">
+		<form action="https://api.web3forms.com/submit" action="contact-me.html" method="POST" id="contactForm">
+			<input type="hidden" name="access_key" value="2bdcf75f-d6a1-4ea9-87ce-7483e320f2c2">
+
+			<h1>Contact me</h1>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+			<input type="text" name = "lastName" id="lastName" placeholder="Last Name" required>
+			<input type="text" name="email" id="email" placeholder="Email" required>
+			<h4>Type your message here...</h4>
+			<textarea name="message" required></textarea>
+			<input type="submit" value="Send" id="button">
+		</form>
+
+		
+
+
+	</div>
+</section>
+
+
+</body>
+
+
+</html>

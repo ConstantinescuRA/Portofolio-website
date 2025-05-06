@@ -1,0 +1,999 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AU+SA:wght@300&family=Playwrite+IN:wght@100..400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+
+/*------------------------NAV BAR------------------------------------*/
+a {
+  text-decoration: none; /* Elimină sublinierea */
+  color: inherit; /* Păstrează culoarea textului existent */
+}
+
+
+.radio-inputs {
+    position: fixed;
+    display: flex;
+    top: 1rem;
+    right: 1rem;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: #eee;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+    text-align: right;
+    z-index: 1000;
+  }
+  
+  .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .radio-inputs .radio input {
+    display: none;
+  }
+  
+  .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all 0.15s ease-in-out;
+  }
+  
+  .radio-inputs .radio input:checked + .name {
+    background-color: #fff;
+    font-weight: 600;
+  }
+  
+  /* Hover effect */
+  .radio-inputs .radio:hover .name {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Animation */
+  .radio-inputs .radio input:checked + .name {
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: select 0.3s ease;
+  }
+  
+  @keyframes select {
+    0% {
+      transform: scale(0.95);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+  /*-------------------------------------TEXT NAME --------------------------------*/
+  .name h2 {
+    font-family: 'Oswald', sans-serif;
+    text-align: left;
+    font-size: 30px;
+    margin-top: 60px;
+}
+  
+  /* Particles */
+  .radio-inputs .radio input:checked + .name::before,
+  .radio-inputs .radio input:checked + .name::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #3b82f6;
+    opacity: 0;
+    animation: particles 0.5s ease forwards;
+  }
+  
+  .radio-inputs .radio input:checked + .name::before {
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .radio-inputs .radio input:checked + .name::after {
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  @keyframes particles {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(var(--direction));
+    }
+  }
+  
+  .radio-inputs .radio input:checked + .name::before {
+    --direction: -10px;
+  }
+  
+  .radio-inputs .radio input:checked + .name::after {
+    --direction: 10px;
+  }
+  
+  .line{
+    width: 100%; /* Lățimea liniei */
+    height: 2px; /* Grosimea liniei */
+    background-color: #000; /* Culoarea liniei (poți schimba cu orice culoare dorești) */
+    margin: 20px 0; /* Spațiu deasupra și sub linie (opțional) */
+    margin-top: 80px
+  }
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.text h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: #000;
+}
+
+.text h3 {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    color: #000;
+}
+
+/* Image */
+.img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+}
+
+.img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #0073e6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #005bb5;
+}
+
+.btn-secondary {
+    background: #ccc;
+    color: black;
+}
+
+.btn-secondary:hover {
+    background: #bbb;
+}
+
+
+.container2 {
+    width: 100%;
+    padding: 0 5%;
+}
+
+.hero-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.about {
+    max-width: 500px;
+    text-align: left;
+}
+
+.img2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    width: 50%; /* Asigură că imaginea ocupă doar 50% din lățimea containerului */
+    margin-bottom: 130px;
+}
+
+.img2 img {
+    width: 100%;
+    border-radius: 10px;
+    max-width: 300px; /* Poți ajusta dimensiunea imaginii */
+}
+
+/*-----------------------HEXA-CONTAINER3---------------------------------------*/
+/* From Uiverse.io by Nawsome */ 
+.socket {
+    position: absolute;
+    top: 300%; /* Acesta va muta socket-ul mai jos pe ecran */
+    right: 0; /* Ajustează această valoare pentru a-l muta mai în stânga */
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    text-align: right;
+    margin-top: 780px;
+    opacity: 0; /* Inițial este ascuns */
+    animation: move-up 1s forwards 0.5s; /* Aplica animația după un delay */
+  }
+
+  .skills-text {
+    font-size: 48px;
+    color: black;
+    margin-top: 50px;
+    opacity: 0; /* Inițial este ascuns */
+    animation: fade-text 2s forwards; /* Aplica animația pentru a face textul vizibil */
+    font-weight: bold;
+  }
+
+  .hex-brick {
+    background: radial-gradient(circle, #ffffff 20%, #40e0d0 60%, #6a0dad 100%);
+    width: 30px;
+    height: 17px;
+    position: absolute;
+    top: 5px;
+    animation-name: fade00;
+    animation-duration: 3s; /* Perioada de animație */
+    animation-iteration-count: infinite;
+    -webkit-animation-name: fade00;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+  }
+  
+  
+  .h2 {
+    transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+  }
+  
+  .h3 {
+    transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+  }
+  
+  .gel {
+    height: 30px;
+    width: 30px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .center-gel {
+    margin-left: -15px;
+    margin-top: -15px;
+    animation-name: pulse00;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: pulse00;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+  }
+  
+  .c1 {
+    margin-left: -47px;
+    margin-top: -15px;
+  }
+  
+  .c2 {
+    margin-left: -31px;
+    margin-top: -43px;
+  }
+  
+  .c3 {
+    margin-left: 1px;
+    margin-top: -43px;
+  }
+  
+  .c4 {
+    margin-left: 17px;
+    margin-top: -15px;
+  }
+  
+  .c5 {
+    margin-left: -31px;
+    margin-top: 13px;
+  }
+  
+  .c6 {
+    margin-left: 1px;
+    margin-top: 13px;
+  }
+  
+  .c7 {
+    margin-left: -63px;
+    margin-top: -43px;
+  }
+  
+  .c8 {
+    margin-left: 33px;
+    margin-top: -43px;
+  }
+  
+  .c9 {
+    margin-left: -15px;
+    margin-top: 41px;
+  }
+  
+  .c10 {
+    margin-left: -63px;
+    margin-top: 13px;
+  }
+  
+  .c11 {
+    margin-left: 33px;
+    margin-top: 13px;
+  }
+  
+  .c12 {
+    margin-left: -15px;
+    margin-top: -71px;
+  }
+  
+  .c13 {
+    margin-left: -47px;
+    margin-top: -71px;
+  }
+  
+  .c14 {
+    margin-left: 17px;
+    margin-top: -71px;
+  }
+  
+  .c15 {
+    margin-left: -47px;
+    margin-top: 41px;
+  }
+  
+  .c16 {
+    margin-left: 17px;
+    margin-top: 41px;
+  }
+  
+  .c17 {
+    margin-left: -79px;
+    margin-top: -15px;
+  }
+  
+  .c18 {
+    margin-left: 49px;
+    margin-top: -15px;
+  }
+  
+  .c19 {
+    margin-left: -63px;
+    margin-top: -99px;
+  }
+  
+  .c20 {
+    margin-left: 33px;
+    margin-top: -99px;
+  }
+  
+  .c21 {
+    margin-left: 1px;
+    margin-top: -99px;
+  }
+  
+  .c22 {
+    margin-left: -31px;
+    margin-top: -99px;
+  }
+  
+  .c23 {
+    margin-left: -63px;
+    margin-top: 69px;
+  }
+  
+  .c24 {
+    margin-left: 33px;
+    margin-top: 69px;
+  }
+  
+  .c25 {
+    margin-left: 1px;
+    margin-top: 69px;
+  }
+  
+  .c26 {
+    margin-left: -31px;
+    margin-top: 69px;
+  }
+  
+  .c27 {
+    margin-left: -79px;
+    margin-top: -15px;
+  }
+  
+  .c28 {
+    margin-left: -95px;
+    margin-top: -43px;
+  }
+  
+  .c29 {
+    margin-left: -95px;
+    margin-top: 13px;
+  }
+  
+  .c30 {
+    margin-left: 49px;
+    margin-top: 41px;
+  }
+  
+  .c31 {
+    margin-left: -79px;
+    margin-top: -71px;
+  }
+  
+  .c32 {
+    margin-left: -111px;
+    margin-top: -15px;
+  }
+  
+  .c33 {
+    margin-left: 65px;
+    margin-top: -43px;
+  }
+  
+  .c34 {
+    margin-left: 65px;
+    margin-top: 13px;
+  }
+  
+  .c35 {
+    margin-left: -79px;
+    margin-top: 41px;
+  }
+  
+  .c36 {
+    margin-left: 49px;
+    margin-top: -71px;
+  }
+  
+  .c37 {
+    margin-left: 81px;
+    margin-top: -15px;
+  }
+  
+  .r1 {
+    animation-name: pulse00;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .2s;
+    -webkit-animation-name: pulse00;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .2s;
+  }
+  
+  .r2 {
+    animation-name: pulse00;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .4s;
+    -webkit-animation-name: pulse00;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .4s;
+  }
+  
+  .r3 {
+    animation-name: pulse00;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .6s;
+    -webkit-animation-name: pulse00;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .6s;
+  }
+  
+  .r1 > .hex-brick {
+    animation-name: fade00;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .2s;
+    -webkit-animation-name: fade00;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .2s;
+  }
+  
+  .r2 > .hex-brick {
+    animation-name: fade00;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .4s;
+    -webkit-animation-name: fade00;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .4s;
+  }
+  
+  .r3 > .hex-brick {
+    animation-name: fade00;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .6s;
+    -webkit-animation-name: fade00;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .6s;
+  }
+  
+  @keyframes pulse00 {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    50% {
+      -webkit-transform: scale(0.01);
+      transform: scale(0.01);
+    }
+  
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fade00 {
+    0% {
+      background: radial-gradient(circle, #ffffff 20%, #40e0d0 60%, #6a0dad 100%); /* Alb în centru, trecere la turcoaz și mov pe margini */
+    }
+    50% {
+      background: radial-gradient(circle, #40e0d0 20%, #6a0dad 60%, #ffffff 100%); /* Turcoaz în centru, trecere la mov și alb pe margini */
+    }
+    100% {
+      background: radial-gradient(circle, #6a0dad 20%, #40e0d0 60%, #ffffff 100%); /* Mov în centru, trecere la turcoaz și alb pe margini */
+    }
+  }
+  @keyframes move-up {
+    0% {
+      top: 150%; /* Poziția de început - mai jos de ecran */
+      opacity: 0;
+    }
+    100% {
+      top: 100%; /* Poziția finală - urcă până în zona vizibilă */
+      opacity: 1;
+    }
+  }
+  
+@keyframes fade-text {
+  0% {
+    opacity: 0; /* La început textul este invizibil */
+  }
+  100% {
+    opacity: 1; /* La final textul devine vizibil */
+  }
+}
+
+/*-----------------------------------------------------SKILLS_----------------------------------------------*/
+.container3 {
+  width: 100%;
+  height: 350px;
+  padding: 0 5%;
+  margin: 0;
+  
+  background: linear-gradient(180deg, #FFFFFF, #40E0D0); /* De sus (alb) în jos (turcoaz) */
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  border-radius: 0px;
+}
+.container3 .skills-container{
+  margin-top: 200px;
+}
+
+
+.container3 .paragraph-text {
+  color: white;
+  max-width: 500px;
+  text-align: left;
+ margin-top: 120px;
+}
+
+.container3 .skills-container{
+  flex-basis: 46%;
+}
+.subject{
+  font-size:18px;
+  font-weight: thin;
+  color: #333333;
+
+  padding-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.progress-bar{
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-color: black;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.progress-bar::after{
+  position:absolute;
+  content: attr(value);
+  top: -35px;
+  right: 0;
+   color: #4B0082;
+  
+  font-size: 18px;
+}
+
+.progress-line{
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background-color: red;
+  border-radius: 15px;
+  top: -1px;
+  animation: animate 1.5s cubic-bezier(1,0.2,0.2,1) forwards; 
+}
+@keyframes animate {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.progress-line::after{
+  content: '';
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius:50% ;
+  top: 50%;
+  left: 50%;
+}
+
+/*-----------------------------------Container4-Works----------------------------------------------------------------*/
+.works{
+  width: 100%;
+  height: 350px;
+  padding: 0 5%;
+  margin: 0;
+
+  background: linear-gradient(180deg, #40E0D0, #FFFFFF); /* Turquoise to White gradient */
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  border-radius: 0px;
+}
+
+
+/* Containerul care conține titlul și cardurile */
+.projects {
+  display: flex;  /* Pune boxurile unul lângă altul */
+  justify-content: center;  /* Le centrează pe mijloc */
+  gap: 70px; /* Distanță între boxuri */
+  flex-wrap: wrap; /* Dacă nu încap pe ecran, trec pe rândul următor */
+  margin-top: 10px;
+}
+
+/* Titlul pentru secțiunea de proiecte */
+
+.head-text {
+  width: 100%; /* Se asigură că ocupă toată lățimea */
+  text-align: center; /* Centrează conținutul */
+  display: flex;
+  justify-content: center; /* Centrează textul */
+  align-items: center; /* Opțional, pentru aliniere verticală */
+}
+
+.head-text h2 {
+  font-size: 2.5rem; /* Dimensiunea textului */
+  color: black;
+  margin-top: 800px; /* Spațiu sub container2 */
+  margin-bottom: 0px; /* Spațiu până la carduri */
+}
+
+.box {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  margin-top: 100px;
+  z-index: 1;
+  background: #fff; /* Culoare de fundal albă */
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Umbra pentru efect 3D */
+}
+.box::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  filter: blur(30px);
+}
+
+.box:hover:before,
+.box:hover:after {
+  transform: skewX(0deg) scaleX(1.3);
+}
+
+.box:before,
+.box:after {
+  background: linear-gradient(315deg, #ffbc00, #ff0058)
+}
+
+.box span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.box span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.1s;
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+}
+
+.box span::before {
+  top: -40px;
+  left: 40px;
+  width: 50px;
+  height: 50px;
+  opacity: 1;
+}
+
+.box span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.5s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  animation-delay: -1s;
+}
+
+.box span:after {
+  bottom: -40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  opacity: 1;
+}
+
+.box .content {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1;
+  transform: 0.5s;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box .content h2 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+
+/*------------------------------------CTA-------------------------------*/
+.cta {
+  background: linear-gradient(180deg, #FFFFFF 0%, #B2FFFF 40%, #40E0D0 100%);
+
+  color: #fff;
+  padding: 4rem 0;
+  text-align: center;
+  margin-top: 600PX;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+
+/* From Uiverse.io by alexmaracinaru */ 
+.rdy {
+  position: relative;
+  margin: auto;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.rdy:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #b1dae7;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+}
+
+.rdy span {
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #234567;
+}
+
+.rdy svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.rdy:hover:before {
+  width: 100%;
+  background: #b1dae7;
+}
+
+.rdy:hover svg {
+  transform: translateX(0);
+}
+
+.rdy:active {
+  transform: scale(0.95);
+}
